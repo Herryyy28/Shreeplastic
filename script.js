@@ -172,22 +172,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Send Email via EmailJS
         if (CONFIG.EMAILJS_PUBLIC_KEY) {
-          const customerParams = {
-            to_email: email,
-            to_name: full_name,
-            request_id: "DIRECT-" + Date.now().toString().slice(-5),
-            product_name: product_name,
-            quantity: quantity,
-            message: "Thank you for your inquiry. We have received your request and will contact you via WhatsApp or Email shortly."
-          };
+          try {
+            const customerParams = {
+              to_email: email,
+              to_name: full_name,
+              request_id: "DIRECT-" + Date.now().toString().slice(-5),
+              product_name: product_name,
+              quantity: quantity,
+              message: "Thank you for your inquiry. We have received your request and will contact you via WhatsApp or Email shortly."
+            };
 
-          const adminParams = {
-            to_email: CONFIG.ADMIN_NOTIFICATION_EMAIL,
-            to_name: "Admin",
-            request_id: "DIRECT-" + Date.now().toString().slice(-5),
-            product_name: product_name,
-            quantity: quantity,
-            message: `New Direct Inquiry:
+            const adminParams = {
+              to_email: CONFIG.ADMIN_NOTIFICATION_EMAIL,
+              to_name: "Admin",
+              request_id: "DIRECT-" + Date.now().toString().slice(-5),
+              product_name: product_name,
+              quantity: quantity,
+              message: `New Direct Inquiry:
 Name: ${full_name}
 Company: ${company_name}
 Phone: ${phone}
@@ -195,10 +196,13 @@ Email: ${email}
 Location: ${city}, ${country}
 Budget: ${budget}
 Requirements: ${message}`
-          };
+            };
 
-          await emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, customerParams);
-          await emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, adminParams);
+            await emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, customerParams);
+            await emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, adminParams);
+          } catch (emailErr) {
+            console.error("EmailJS failed to send email notifications:", emailErr);
+          }
         }
 
         // Generate WhatsApp Message
@@ -247,11 +251,11 @@ Requirements: ${message}`
   const clearSearchBtn = document.getElementById('clear-search');
   const filterTabs = document.querySelectorAll('.filter-tab');
   const productCards = document.querySelectorAll('.product-detail-card');
-  
+
   if (productCards.length > 0) {
     let currentCategory = 'all';
     let searchQuery = '';
-    
+
     // Create No Results element
     const container = productCards[0].parentElement;
     const noResultsMsg = document.createElement('div');
@@ -266,14 +270,14 @@ Requirements: ${message}`
 
     function filterProducts() {
       let visibleCount = 0;
-      
+
       productCards.forEach(card => {
         const category = card.dataset.category || 'all';
         const searchText = (card.dataset.searchText || '').toLowerCase();
-        
+
         const matchesCategory = currentCategory === 'all' || category === currentCategory;
         const matchesSearch = !searchQuery || searchText.includes(searchQuery);
-        
+
         if (matchesCategory && matchesSearch) {
           visibleCount++;
           if (card.style.display === 'none') {
@@ -288,7 +292,7 @@ Requirements: ${message}`
           card.style.display = 'none';
         }
       });
-      
+
       if (visibleCount === 0) {
         noResultsMsg.style.display = 'block';
         if (typeof gsap !== 'undefined') {
@@ -297,13 +301,13 @@ Requirements: ${message}`
       } else {
         noResultsMsg.style.display = 'none';
       }
-      
+
       // Refresh ScrollTrigger if active to adjust offsets
       if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.refresh();
       }
     }
-    
+
     // Filter click handler
     filterTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -313,7 +317,7 @@ Requirements: ${message}`
         filterProducts();
       });
     });
-    
+
     // Search input handler
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
@@ -324,7 +328,7 @@ Requirements: ${message}`
         filterProducts();
       });
     }
-    
+
     // Clear search handler
     if (clearSearchBtn && searchInput) {
       clearSearchBtn.addEventListener('click', () => {
