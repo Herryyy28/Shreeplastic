@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Request a technical quotation for precision injection molding machines and automation systems from Shree Plastic Machinery.">
+  <title>Request Quotation | Shree Plastic Machinery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    .rfq-main {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .rfq-form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .trust-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    .trust-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--text-1);
+    }
+
+    .trust-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-2);
+    }
+
+    .trust-list li i {
+      color: var(--blue);
+      margin-top: 4px;
+    }
+
+    @media(max-width:1024px) {
+      .rfq-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .rfq-form-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ░░░░ CUSTOM CURSOR ░░░░ -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ░░░░ SCROLL PROGRESS ░░░░ -->
+  <div id="scroll-progress"></div>
+
+  <!-- ░░░░ LOADING SCREEN ░░░░ -->
+  <div id="loader">
+    <div class="loader-logo">Shree Plastic</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ░░░░ NAVBAR ░░░░ -->
+  <header>
+    <nav class="navbar" id="main-nav">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon"><img src="assets/logo.png" alt="SP Logo"></div>Shree Plastic
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="industries.html" class="nav-link">Industries</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" title="Toggle dark mode"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+        <a href="request-quotation.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="industries.html" class="nav-link">Industries</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="request-quotation.html" class="btn btn-primary" style="margin-top:10px;width:100%;justify-content:center;">Get Quote</a>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="section-pad text-center"
+    style="padding-bottom:60px;background:linear-gradient(180deg,rgba(0,113,227,0.04) 0%,transparent 100%)">
+    <div class="container" data-aos="fade-up">
+      <span class="badge"><i class="fa-solid fa-file-invoice-dollar"></i> Quote Request</span>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.2rem);">Get a <span class="text-gradient">Technical Quote</span></h1>
+      <p class="section-sub" style="margin:0 auto;">Tell us about your production goals. Our engineering and sales team will draft a detailed proposal customized to your needs.</p>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="section-pad" style="padding-top:20px;">
+    <div class="container">
+      <div class="rfq-main">
+
+        <!-- Info Column -->
+        <div data-aos="fade-right">
+          <h2 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;letter-spacing:-.03em;margin-bottom:20px;">
+            B2B Molding Solutions
+          </h2>
+          <p style="color:var(--text-2);margin-bottom:24px;font-size:1rem;">
+            Shree Plastic Machinery manufactures premium, highly efficient servo-driven and hydraulic injection molding machinery. Partner with us for complete automation design and reliable production support.
+          </p>
+
+          <div style="display:flex;gap:12px;margin-bottom:30px;flex-wrap:wrap;">
+            <span class="badge" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-1);"><i class="fa-solid fa-certificate" style="color:var(--blue);margin-right:6px;"></i>ISO 9001:2015</span>
+            <span class="badge" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-1);"><i class="fa-solid fa-shield-halved" style="color:var(--blue);margin-right:6px;"></i>CE Compliant</span>
+          </div>
+
+          <div class="trust-box">
+            <h4>Why Shree Plastic?</h4>
+            <ul class="trust-list">
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <strong>Custom Platen Configurations</strong>
+                  <p style="font-size:0.88rem;color:var(--text-2);margin-top:2px;">Engineered to match your existing mold layouts from 80T to 1,200T.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <strong>Global Shipping & Commissioning</strong>
+                  <p style="font-size:0.88rem;color:var(--text-2);margin-top:2px;">Full export documentation and live remote or on-site commissioning guidance.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <strong>Rigorous Factory Testing</strong>
+                  <p style="font-size:0.88rem;color:var(--text-2);margin-top:2px;">Every system undergoes a mandatory 72-hour continuous trial run before dispatch.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="rfq-form-card" data-aos="fade-left">
+          <h2 style="font-family:var(--font-head);font-size:1.4rem;font-weight:800;letter-spacing:-.03em;margin-bottom:6px;">
+            Technical Requirements
+          </h2>
+          <p style="color:var(--text-2);font-size:.87rem;margin-bottom:24px;">Our engineers respond within 12 business hours with a formal proposal.</p>
+
+          <form id="rfq-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Contact Person *</label>
+                <input type="text" id="rfq-name" class="form-control" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" id="rfq-company" class="form-control" placeholder="Acme Plastics">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Business Email *</label>
+                <input type="email" id="rfq-email" class="form-control" placeholder="jdoe@company.com" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="rfq-phone" class="form-control" placeholder="+91 9427784740" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Country</label>
+                <input type="text" id="rfq-country" class="form-control" placeholder="India">
+              </div>
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" id="rfq-city" class="form-control" placeholder="Delhi">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Machine Range *</label>
+                <select id="rfq-machine" class="form-control" required>
+                  <option value="Servo-Orange">GM-80 CNC Servo Machine</option>
+                  <option value="Hydraulic-Green">ST-50 Hydraulic Machine</option>
+                  <option value="Hydraulic-Blue">Hydraulic Injection Molding Machine</option>
+                  <option value="Scrap-Grinder">Plastic Scrap Grinder / Crusher</option>
+                  <option value="Bench-Press">Pneumatic/Hydraulic Bench Press</option>
+                  <option value="custom">Custom Solution</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Quantity *</label>
+                <input type="number" id="rfq-qty" class="form-control" min="1" value="1" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Est. Budget ($)</label>
+                <input type="number" id="rfq-budget" class="form-control" placeholder="e.g. 50000">
+              </div>
+              <div class="form-group">
+                <label>Upload Drawing/PDF</label>
+                <input type="file" id="rfq-drawing" class="form-control" accept=".pdf,.png,.jpg,.jpeg,.dwg,.dxf">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Requirements *</label>
+              <textarea id="rfq-message" class="form-control" rows="3" placeholder="Polymer type, cavity count, cycle time..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;"><i class="fa-solid fa-paper-plane"></i> Submit Inquiry</button>
+          </form>
+
+          <div class="form-success" id="rfq-success" style="display:none;">
+            <div class="success-icon" style="font-size:3rem;color:var(--teal);margin-bottom:15px;text-align:center;"><i class="fa-solid fa-circle-check"></i></div>
+            <h3 style="text-align:center;font-size:1.4rem;margin-bottom:10px;">Inquiry Submitted!</h3>
+            <p style="text-align:center;color:var(--text-2);font-size:0.95rem;line-height:1.6;">Thank you. Our regional sales engineer will review your requirements and send a tailored technical proposal within 12 business hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="nav-logo-icon"><img src="assets/logo.png" alt="SP Logo"></div>Shree Plastic
+          </div>
+          <p>Precision injection molding machines built for global reliability.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">Servo Injection</a></li>
+            <li><a href="products.html">Hydraulic Injection</a></li>
+            <li><a href="products.html">Scrap Grinders</a></li>
+            <li><a href="products.html">Auxiliary Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="request-quotation.html">Request Quotation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:shreeplastics14@gmail.com"><i class="fa-solid fa-envelope" style="color:var(--blue);margin-right:6px"></i>shreeplastics14@gmail.com</a></li>
+            <li><a href="tel:+919427784740"><i class="fa-solid fa-phone" style="color:var(--blue);margin-right:6px"></i>+91 9427784740</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Shree Plastic Machinery.</p>
+        <div class="footer-legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Elements -->
+  <a href="https://wa.me/919427784740" target="_blank" id="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i></a>
+  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js?v=2.2"></script>
+</body>
+
+</html>
