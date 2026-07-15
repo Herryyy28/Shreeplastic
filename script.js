@@ -44,12 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('loader');
   const loaderLogo = document.querySelector('.loader-logo');
   if (loader && loaderLogo) {
-    gsap.to(loaderLogo, { opacity: 1, y: 0, duration: 0.6, delay: 0.2 });
-    gsap.to(loader, {
-      opacity: 0, duration: 0.6, delay: 2.0,
-      onComplete: () => { loader.style.display = 'none'; document.body.style.overflow = ''; startAnimations(); }
-    });
-    document.body.style.overflow = 'hidden';
+    if (typeof gsap !== 'undefined') {
+      gsap.to(loaderLogo, { opacity: 1, y: 0, duration: 0.6, delay: 0.2 });
+      gsap.to(loader, {
+        opacity: 0, duration: 0.6, delay: 2.0,
+        onComplete: () => { loader.style.display = 'none'; document.body.style.overflow = ''; startAnimations(); }
+      });
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Fallback if GSAP fails to load
+      loader.style.display = 'none';
+      document.body.style.overflow = '';
+      startAnimations();
+    }
   } else {
     startAnimations();
   }
@@ -500,6 +507,42 @@ Requirements: ${message}`
       AOS.init({
         duration: 800, easing: 'ease-out-cubic',
         once: true, offset: 60
+      });
+    }
+
+    /* ─── CUSTOM CURSOR ─────────────────────────────── */
+    const cursor = document.querySelector('.custom-cursor');
+    const follower = document.querySelector('.cursor-follower');
+    
+    // Only enable custom cursor if NOT a touch device and GSAP is loaded
+    if (cursor && follower && typeof gsap !== 'undefined' && window.matchMedia("(pointer: fine)").matches) {
+      document.body.style.cursor = 'none';
+
+      let mouseX = 0, mouseY = 0;
+      let followerX = 0, followerY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.1 });
+      });
+
+      gsap.ticker.add(() => {
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        gsap.set(follower, { x: followerX, y: followerY });
+      });
+
+      document.querySelectorAll('a, button, input, textarea, .btn, .gallery-item').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('active');
+          follower.classList.add('active');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('active');
+          follower.classList.remove('active');
+        });
+        el.style.cursor = 'none';
       });
     }
 

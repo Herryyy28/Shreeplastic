@@ -2003,3 +2003,51 @@ select.form-control {
     font-size: 1.4rem !important;
   }
 }
+
+/* ─── CUSTOM CURSOR ────────────────────────────────────────── */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background 0.3s;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.custom-cursor.active {
+  width: 0;
+  height: 0;
+}
+
+.cursor-follower.active {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 113, 227, 0.1);
+  border-color: transparent;
+}
+
+@media (pointer: coarse), (max-width: 1024px) {
+  .custom-cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+}
