@@ -679,7 +679,8 @@ body {
 
 /* ─── 12. PRODUCT SWIPER ───────────────────────────────── */
 .swiper {
-  overflow: visible !important;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .products-swiper .swiper-slide {
@@ -1718,6 +1719,7 @@ select.form-control {
   }
 
   .container {
+    width: 100%;
     max-width: 100%;
     padding: 0 16px;
   }
@@ -1775,7 +1777,8 @@ select.form-control {
   }
 
   .hero-image-wrap {
-    display: none;
+    display: block;
+    margin-top: 30px;
   }
 
   .intro-grid {
