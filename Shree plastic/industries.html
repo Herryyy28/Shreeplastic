@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Shree Plastic Machinery serves medical, automotive, packaging, consumer goods and industrial manufacturing sectors worldwide.">
+  <title>Industries Served | Shree Plastic Machinery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    .ind-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 32px;
+    }
+
+    .ind-section.reverse {
+      direction: rtl;
+    }
+
+    .ind-section.reverse>* {
+      direction: ltr;
+    }
+
+    .ind-img {
+      overflow: hidden;
+      min-height: 360px;
+    }
+
+    .ind-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+
+    .ind-section:hover .ind-img img {
+      transform: scale(1.05);
+    }
+
+    .ind-body {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ind-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .ind-body h2 {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 14px;
+    }
+
+    .ind-body p {
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      font-size: .92rem;
+    }
+
+    .req-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .req-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .87rem;
+      color: var(--text-2);
+    }
+
+    .req-list li i {
+      color: var(--blue);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    @media(max-width:1024px) {
+      .ind-body {
+        padding: 32px 28px;
+      }
+
+      .ind-body h2 {
+        font-size: 1.4rem;
+      }
+
+      .ind-img {
+        min-height: 300px;
+      }
+    }
+
+    @media(max-width:768px) {
+      .ind-section {
+        grid-template-columns: 1fr;
+      }
+
+      .ind-section.reverse {
+        direction: ltr;
+      }
+
+      .ind-img {
+        min-height: 220px;
+      }
+
+      .ind-body {
+        padding: 28px 24px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .ind-body {
+        padding: 20px 16px;
+      }
+
+      .ind-body h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .ind-body p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+
+      .req-list {
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .req-list li {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="scroll-progress"></div>
+  <header>
+    <nav class="navbar" id="main-nav">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon"><img src="assets/logo.png" alt="SP Logo"></div>Shree Plastic
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="industries.html" class="nav-link active">Industries</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions"><button id="theme-toggle"><i id="theme-icon"
+            class="fa-solid fa-moon"></i></button><button class="btn btn-primary open-rfq"><i
+            class="fa-solid fa-paper-plane"></i> Get Quote</button></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu"><a href="index.html" class="nav-link">Home</a><a href="about.html"
+        class="nav-link">About</a><a href="products.html" class="nav-link">Products</a><a href="industries.html"
+        class="nav-link">Industries</a><a href="gallery.html" class="nav-link">Gallery</a><a href="blog.html"
+        class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a><button
+        class="btn btn-primary open-rfq" style="margin-top:10px;width:100%;justify-content:center;">Get Quote</button>
+    </div>
+  </header>
+
+  <section class="section-pad text-center"
+    style="padding-bottom:60px;background:linear-gradient(180deg,rgba(0,113,227,0.04) 0%,transparent 100%)">
+    <div class="container" data-aos="fade-up">
+      <span class="badge"><i class="fa-solid fa-sitemap"></i> Sectors We Serve</span>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.2rem);">Tailored for <span
+          class="text-gradient">Every Industry</span></h1>
+      <p class="section-sub" style="margin:0 auto;">Purpose-built machine configurations designed to meet the unique
+        regulatory, speed, and quality requirements of each sector.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:20px;">
+    <div class="container">
+
+      <div class="ind-section" data-aos="fade-up">
+        <div class="ind-img"><img src="assets/machine-vertical.jpg" alt="Medical Injection Molding"></div>
+        <div class="ind-body">
+          <div class="ind-tag"><i class="fa-solid fa-syringe"></i> Healthcare</div>
+          <h2>Medical &amp; Biotech</h2>
+          <p>Our Green Hydraulic Machine meets the most stringent pharmaceutical and medical device production
+            requirements with cleanroom-ready configurations and validated process control.</p>
+          <ul class="req-list">
+            <li><i class="fa-solid fa-check"></i>ISO Class 7 cleanroom compliant build</li>
+            <li><i class="fa-solid fa-check"></i>Anti-static platen guards and grounding</li>
+            <li><i class="fa-solid fa-check"></i>21 CFR Part 11 process data logging</li>
+            <li><i class="fa-solid fa-check"></i>Food-grade hydraulic oil option</li>
+          </ul>
+          <button class="btn btn-primary open-rfq" data-machine="Hydraulic-Green"><i class="fa-solid fa-envelope"></i>
+            Request Medical Quote</button>
+        </div>
+      </div>
+
+      <div class="ind-section reverse" data-aos="fade-up">
+        <div class="ind-img"><img src="assets/machine-goyani.jpg" alt="Automotive Injection Molding"></div>
+        <div class="ind-body">
+          <div class="ind-tag"><i class="fa-solid fa-car"></i> Automotive</div>
+          <h2>Automotive Components</h2>
+          <p>Large platen configurations and custom tie bar spacing on the Conventional Hydraulic Injection Molding
+            Machine allow production of full-size interior trim panels, bumper supports, and structural brackets.</p>
+          <ul class="req-list">
+            <li><i class="fa-solid fa-check"></i>Max platen 820 × 820 mm available</li>
+            <li><i class="fa-solid fa-check"></i>Simultaneous injection robotic integration</li>
+            <li><i class="fa-solid fa-check"></i>TS 16949 quality documentation support</li>
+            <li><i class="fa-solid fa-check"></i>Dual-color (bi-injection) option</li>
+          </ul>
+          <button class="btn btn-primary open-rfq" data-machine="Hydraulic-Blue"><i class="fa-solid fa-envelope"></i>
+            Request Automotive Quote</button>
+        </div>
+      </div>
+
+      <div class="ind-section" data-aos="fade-up">
+        <div class="ind-img"><img src="assets/machine-green-yellow.jpg" alt="Packaging Injection Molding"></div>
+        <div class="ind-body">
+          <div class="ind-tag"><i class="fa-solid fa-box-open"></i> Packaging</div>
+          <h2>Consumer Packaging</h2>
+          <p>Our CNC Servo Injection Molding Machine (Orange) achieves sub-1.5 second dry cycle times with
+            accumulator-assisted injection, enabling extreme throughput for high-cavity thin-wall molds.</p>
+          <ul class="req-list">
+            <li><i class="fa-solid fa-check"></i>1.5 s dry cycle with accumulators</li>
+            <li><i class="fa-solid fa-check"></i>Hot runner temperature controller</li>
+            <li><i class="fa-solid fa-check"></i>IML (In-Mold Label) robot interface</li>
+            <li><i class="fa-solid fa-check"></i>96-cavity cap mold capability</li>
+          </ul>
+          <button class="btn btn-primary open-rfq" data-machine="Servo-Orange"><i class="fa-solid fa-envelope"></i>
+            Request Packaging Quote</button>
+        </div>
+      </div>
+
+      <div class="ind-section reverse" data-aos="fade-up">
+        <div class="ind-img"><img src="assets/factory-floor-wide.jpg" alt="Industrial Injection Molding"></div>
+        <div class="ind-body">
+          <div class="ind-tag"><i class="fa-solid fa-wrench"></i> Industrial &amp; Textile</div>
+          <h2>Industrial Components</h2>
+          <p>Rugged platen systems engineered for heavy engineering materials like glass-filled Nylon, POM, and
+            reinforced polycarbonate used in industrial gears, housings, and fasteners.</p>
+          <ul class="req-list">
+            <li><i class="fa-solid fa-check"></i>Reinforced screw for abrasive materials</li>
+            <li><i class="fa-solid fa-check"></i>High barrel temperature up to 380°C</li>
+            <li><i class="fa-solid fa-check"></i>Precision closed-loop shot weight control</li>
+            <li><i class="fa-solid fa-check"></i>Compatible with 48T hydraulic mold clamping</li>
+          </ul>
+          <button class="btn btn-primary open-rfq" data-machine="Servo-Orange"><i class="fa-solid fa-envelope"></i>
+            Request Industrial Quote</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad" style="padding-top:0;">
+    <div class="container" data-aos="zoom-in">
+      <div class="cta-banner">
+        <span class="badge" style="background:rgba(0,113,227,0.2);color:#8ec3ff;border-color:rgba(0,113,227,0.2);"><i
+            class="fa-solid fa-industry"></i> Industry-Specific Configuration</span>
+        <h2>Your Industry, Your Machine</h2>
+        <p>Tell us your application and we'll engineer the right clamping force, tie bar spacing, and automation stack.
+        </p>
+        <button class="btn btn-primary open-rfq" style="font-size:1rem;padding:15px 34px;"><i
+            class="fa-solid fa-paper-plane"></i> Discuss Your Project</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="nav-logo-icon"><img src="assets/logo.png" alt="SP Logo"></div>Shree Plastic
+          </div>
+          <p>Precision injection molding machines built for global reliability.</p>
+          <div class="footer-social"><a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a><a
+              href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a><a href="#" class="social-btn"><i
+                class="fa-brands fa-whatsapp"></i></a></div>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">Servo Injection</a></li>
+            <li><a href="products.html">Hydraulic Injection</a></li>
+            <li><a href="products.html">Scrap Grinders</a></li>
+            <li><a href="products.html">Auxiliary Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:shreeplastic14@gmail.com"><i class="fa-solid fa-envelope"
+                  style="color:var(--blue);margin-right:6px"></i>shreeplastic14@gmail.com</a></li>
+            <li><a href="tel:+919427784740"><i class="fa-solid fa-phone"
+                  style="color:var(--blue);margin-right:6px"></i>+91 9427784740</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Shree Plastic Machinery.</p>
+        <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+  <div id="rfq-overlay" class="rfq-overlay"></div>
+  <div id="rfq-sheet" class="rfq-sheet" role="dialog">
+    <div class="sheet-handle"></div><button id="close-sheet" class="close-sheet"><i
+        class="fa-solid fa-xmark"></i></button>
+    <h2>Request Quotation</h2>
+    <p class="sheet-sub">Our engineers respond within 12 business hours.</p>
+    <form id="rfq-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Contact Person *</label>
+          <input type="text" id="rfq-name" class="form-control" placeholder="John Doe" required>
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" id="rfq-company" class="form-control" placeholder="Acme Plastics">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Business Email *</label>
+          <input type="email" id="rfq-email" class="form-control" placeholder="xxxxx@Gamil.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="rfq-phone" class="form-control" placeholder="+91 91xxxxxxxx" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Country</label>
+          <input type="text" id="rfq-country" class="form-control" placeholder="India">
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" id="rfq-city" class="form-control" placeholder="Delhi">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Machine Range *</label>
+          <select id="rfq-machine" class="form-control" required>
+            <option value="Servo-Orange">GM-80 CNC Servo Machine</option>
+            <option value="Hydraulic-Green">ST-50 Hydraulic Machine</option>
+            <option value="Hydraulic-Blue">Hydraulic Injection Molding Machine</option>
+            <option value="Scrap-Grinder">Plastic Scrap Grinder / Crusher</option>
+            <option value="Bench-Press">Pneumatic/Hydraulic Bench Press</option>
+            <option value="custom">Custom Solution</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Quantity *</label>
+          <input type="number" id="rfq-qty" class="form-control" min="1" value="1" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Est. Budget ($)</label>
+          <input type="number" id="rfq-budget" class="form-control" placeholder="e.g. 50000">
+        </div>
+        <div class="form-group">
+          <label>Upload Drawing/PDF</label>
+          <input type="file" id="rfq-drawing" class="form-control" accept=".pdf,.png,.jpg,.jpeg,.dwg,.dxf">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Requirements *</label>
+        <textarea id="rfq-message" class="form-control" rows="3" placeholder="Polymer type, cavity count, cycle time..."
+          required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;"><i
+          class="fa-solid fa-paper-plane"></i> Submit Inquiry</button>
+    </form>
+    <div class="form-success" id="rfq-success">
+      <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3>Inquiry Submitted!</h3>
+      <p>Our engineer will send a proposal within 12 hours.</p>
+    </div>
+  </div>
+  <a href="https://wa.me/919427784740" target="_blank" id="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i></a>
+  <button id="back-top"><i class="fa-solid fa-chevron-up"></i></button>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
