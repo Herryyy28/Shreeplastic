@@ -168,11 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('rfq-message').value;
 
       try {
-        await initCloudServices();
-
         // Send Email via EmailJS
         if (CONFIG.EMAILJS_PUBLIC_KEY) {
           try {
+            await initCloudServices();
             const customerParams = {
               to_email: email,
               to_name: full_name,
