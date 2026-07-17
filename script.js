@@ -513,7 +513,7 @@ Requirements: ${message}`
     /* ─── CUSTOM CURSOR ─────────────────────────────── */
     const cursor = document.querySelector('.custom-cursor');
     const follower = document.querySelector('.cursor-follower');
-    
+
     // Only enable custom cursor if NOT a touch device and GSAP is loaded
     if (cursor && follower && typeof gsap !== 'undefined' && window.matchMedia("(pointer: fine)").matches) {
       document.body.style.cursor = 'none';
